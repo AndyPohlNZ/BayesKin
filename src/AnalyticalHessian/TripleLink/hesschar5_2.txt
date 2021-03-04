@@ -1,0 +1,1 @@
+- exp(-2*lsigma)*((x311*pi*cos((theta3*pi)/180))/180 - (x312*pi*sin((theta3*pi)/180))/180) - exp(-2*lsigma)*((x321*pi*cos((theta3*pi)/180))/180 - (x322*pi*sin((theta3*pi)/180))/180) - exp(-2*lsigma)*((x331*pi*cos((theta3*pi)/180))/180 - (x332*pi*sin((theta3*pi)/180))/180) - exp(-2*lsigma)*((x341*pi*cos((theta3*pi)/180))/180 - (x342*pi*sin((theta3*pi)/180))/180)

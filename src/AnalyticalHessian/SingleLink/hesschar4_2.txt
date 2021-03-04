@@ -1,0 +1,1 @@
+exp(-2*lsigma)*(2*r2 - 2*y112 + 2*x112*cos((theta1*pi)/180) + 2*x111*sin((theta1*pi)/180)) + exp(-2*lsigma)*(2*r2 - 2*y122 + 2*x122*cos((theta1*pi)/180) + 2*x121*sin((theta1*pi)/180)) + exp(-2*lsigma)*(2*r2 - 2*y132 + 2*x132*cos((theta1*pi)/180) + 2*x131*sin((theta1*pi)/180)) + exp(-2*lsigma)*(2*r2 - 2*y142 + 2*x142*cos((theta1*pi)/180) + 2*x141*sin((theta1*pi)/180))

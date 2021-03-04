@@ -1,0 +1,62 @@
+
+model{
+
+    pi = 3.14159265359;
+
+    # rotation matricies
+    for(i in 1:nlinks){
+      Gam[i,1,1] <- cos(thetar[i])
+      Gam[i,2,1] <- sin(thetar[i])
+      Gam[i,1,2] <- -sin(thetar[i])
+      Gam[i,2,2] <- cos(thetar[i])
+    }
+
+    ## Joint positions
+    J[1,1:ndim] <- r[1:ndim]
+    for(i in 2:nlinks){
+      J[i,1:ndim] <- J[i-1,1:ndim] + Gam[i-1,1:ndim,1:ndim] %*% leng[i-1,1:ndim]
+    }
+
+    ## vcm
+    #vcm[1,1] = 1/sigma/sigma
+    #vcm[1,2] = 0
+    #vcm[2,1] = 0
+    #vcm[2,2] = 1/sigma/sigma
+
+    for(i in 1:nlinks){  ## number of links: 1, 2 or 3
+      for(j in 1:nmarkers[i]){  ## number of markers
+        alpha[i,j,1:ndim] <- J[i,1:ndim] + Gam[i,1:ndim,1:ndim]%*%x[i,j,1:ndim]
+        #y[i,j,1:ndim] ~ dmnorm(alpha[i,j,1:ndim], vcm) # MVN version
+        for(k in 1:ndim){
+            y[i,j,k] ~ dnorm(alpha[i,j,k], 1/sigma/sigma)
+        }
+      }
+    }
+
+
+
+##### PRIORS ######
+
+    ## Regularized priors
+    r[1] ~ dt(0, 1, 5);
+    r[2] ~ dt(0, 1, 5);
+    # hip#
+    hipsd = 15;
+    hip ~ dt(-45, 1/15/15, 5)
+    theta[1] <- hip;
+    thetar[1] <- theta[1] * (pi/180);
+
+    # knee ~ normal(30, 6); // knee angle in deg based on Buczek and Cavanagh (1990
+    knee ~ dt(30, 1/6/6,5);
+    theta[2] <- theta[1] + knee;
+    thetar[2] <- theta[2] * (pi/180);
+
+    # ankle ~ normal(0, 7); // ankle angle in deg based on Buczek and Cavanagh (1990)
+    ankle ~ dt(0, 1/7/7, 5);
+    theta[3] <- 90 + theta[2] + ankle;
+    thetar[3] <- theta[3] * (pi/180);
+
+    sigma_mm ~ dgamma(1.2, 0.1);
+    sigma <- sigma_mm/1000;
+
+}
