@@ -1,4 +1,4 @@
-# Readme.md
+# Bayesian Kinematics
 
 This repository contains code and data to replicate analyses outlined in Pohl, Schofield and Ferber. (2019). Examination of a Bayesian approach to inverse Kinematics.
 
