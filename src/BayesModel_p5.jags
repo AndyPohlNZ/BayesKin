@@ -1,6 +1,4 @@
-
 model{
-
     pi = 3.14159265359;
 
     # rotation matricies
@@ -35,12 +33,14 @@ model{
     }
 
     ##### PRIORS ######
-    for(i in 1:nlinks){
-      thetar[i] ~ dunif(-pi, pi)
-      theta[i] <- thetar[i] * 180 / pi
-    }
     for(k in 1:ndim){
-      r[k] ~ dunif(-0.1,0.1)
+      r[k] ~ dnorm(ls_r[k], 0.005); # centered at LS solution with sd 5mm
     }
-    sigma ~ dunif(0,0.05)
+
+    for(i in 1:nlinks){
+      theta[i] ~ dnorm(ls_theta[i], 1); # centered at LS solution with sd 1 deg
+      thetar[i] <- theta[i] * (pi / 180)
+    }
+
+    sigma ~ dnorm(ls_sigma, 0.002)T(0,); # Centered at LS with Sd 2mm truncated to be positive
 }

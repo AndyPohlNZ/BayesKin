@@ -46,7 +46,7 @@ model{
     theta[1] <- hip;
     thetar[1] <- theta[1] * (pi/180);
 
-    # knee ~ normal(30, 6); // knee angle in deg based on Buczek and Cavanagh (1990
+    # knee ~ normal(30, 6); // knee angle in deg based on Buczek and Cavanagh (1990)
     knee ~ dt(30, 1/6/6,5);
     theta[2] <- theta[1] + knee;
     thetar[2] <- theta[2] * (pi/180);

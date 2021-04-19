@@ -1,6 +1,4 @@
-
 model{
-
     pi = 3.14159265359;
 
     # rotation matricies
@@ -35,12 +33,13 @@ model{
     }
 
     ##### PRIORS ######
-    for(i in 1:nlinks){
-      thetar[i] ~ dunif(-pi, pi)
-      theta[i] <- thetar[i] * 180 / pi
-    }
     for(k in 1:ndim){
-      r[k] ~ dunif(-0.1,0.1)
+      r[k] ~ dunif(ls_r[k]-0.1, ls_r[k] + 0.1); # Uniform centered at LS value
     }
-    sigma ~ dunif(0,0.05)
+
+    for(i in 1:nlinks){
+      theta[i] ~ dunif(ls_theta[i]-180, ls_theta[i]+180) # Uniform centered at LS value
+      thetar[i] <- theta[i] * (pi / 180)
+    }
+    sigma ~ dunif(0.1*ls_sigma, 10*ls_sigma)
 }

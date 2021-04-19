@@ -2,6 +2,11 @@
 ## Bayesian estimates of rigid body kinematics
 ## Andy Pohl
 ## UofC - Faculty of Kinesiology
+
+## Written by: Andy Pohl
+## UofC - Faculty of Kinesiology
+## June-Dec 2020
+## Revision 1: April 2020
 ################################################################
 
 ##################### generate_results.r  ###################
@@ -23,20 +28,21 @@ RESULTS_DIR = "" # location of results directory
 setwd(RESULTS_DIR)
 # Load results file
 
-#FILENAME = "R1_true_16112020.rda" # True
-FILENAME = "R2_rand_28112020.rda" #random
+FILENAME = "" # Filename of .rda result file produced by process_results.r
 results = readRDS(FILENAME)
 results = data.frame(results, stringsAsFactors = F)
-results$model = factor(results$model, levels = c('LS', "Bayes_p1", "Bayes_p2", "Bayes_p3"))
+results$model = factor(results$model, levels = c('LS', "Bayes_p1", "Bayes_p2", "Bayes_p3", "Bayes_p4", "Bayes_p5"))
 results$parameter = factor(results$parameter, levels = c('r1', "r2", "theta1", "theta2", "theta3", "sigma"))
+# Convert r/sigma to mm
+results[results$parameter %in% c('r1', 'r2', 'sigma'),c('est', 'quantile.1', 'quantile.2', 'quantile.3', 'quantile.4', 'quantile.5')] = results[results$parameter %in% c('r1', 'r2', 'sigma'),c('est', 'quantile.1', 'quantile.2', 'quantile.3', 'quantile.4', 'quantile.5')]*1000
 
 # Set constants
 POSES = c("SingleLink", "DoubleLink", "TripleLink")
-MODELS = c("LS", "Bayes_p1", "Bayes_p2", "Bayes_p3")
+MODELS = c("LS", "Bayes_p1", "Bayes_p2", "Bayes_p3", "Bayes_p4", "Bayes_p5")
 PARMS = c("r1", "r2", "theta1", "theta2", "theta3", "sigma")
 PARMLABS = list(r1=TeX("$r_1 \\,  (mm)$"), r2=TeX("$r_2  \\, (mm)$"), theta1=TeX("$\\theta_1 \\, (^o)$"), 
                 theta2=TeX("$\\theta_2 \\, (^o)$"), theta3=TeX("$\\theta_3\\, (^o) "), sigma=TeX("$\\sigma \\, (mm)$"))
-MODELLABS = c("LS", "Bayes P1", "Bayes P2", "Bayes P3")
+MODELLABS = c("LS", "Bayes P1", "Bayes P2", "Bayes P3", "Bayes P4", "Bayes P5")
 
 TRUEVALS = list(r1 = 0.07*1000, r2 = 0.03*1000, 
                 theta1 = -55, theta2 = -110, theta3 = -10, sigma = 1.5/1000 *1000)
@@ -83,8 +89,6 @@ xtable(MCMC_summary)
 ################################################################################
 ## Table 1: Bias, variance, mse and RMSE
 ################################################################################
-# Convert r/sigma to mm
-results[results$parameter %in% c('r1', 'r2', 'sigma'),c('est', 'quantile.1', 'quantile.2', 'quantile.3', 'quantile.4', 'quantile.5')] = results[results$parameter %in% c('r1', 'r2', 'sigma'),c('est', 'quantile.1', 'quantile.2', 'quantile.3', 'quantile.4', 'quantile.5')]*1000
 
 tab1 = results %>% group_by(pose, model, parameter) %>% summarize(bias = mean(est), var = sd(est)^2)
 
@@ -122,9 +126,9 @@ colors = list(grey = rgb(97/255, 97/255,97/255, 0.2),
 
 point_cols = list(colors$pink, colors$blue, colors$green, colors$purple)
 
-#colors = list(grey = rgb(97/255, 97/255,97/255, 0.2),
-#              orange = rgb(241/255, 136/255,5/255, 1))
-
+# Adjust the following to choose what is plotted in the nparmsx4 grid of plots.
+MODELS = c("LS", "Bayes_p1", "Bayes_p2", "Bayes_p3")
+MODELLABS = c("LS", "Bayes P1", "Bayes P2", "Bayes P3")
 ################################################################################
 ## Single Link
 ################################################################################
@@ -353,10 +357,102 @@ for(i in 1:length(POSES)){
 Bayes_perf_p3 = Bayes_perf %>% group_by(pose, model, parameter) %>% summarize(equilivance_ls = mean(equilivance_ls), equilivance_true = mean(equilivance_true),
                                                                               perf = mean(outperformed))
 
-Bayes_perf = rbind(Bayes_perf_p1, Bayes_perf_p2, Bayes_perf_p3)
+## Prior 4
+p4 = results %>% filter(model =='Bayes_p4' )
+Bayes_perf = data.frame(seed = numeric(), pose = character(), model = character(), parameter = character(), 
+                        equilivance_ls = numeric(), equilivance_true = numeric(),outperformed = numeric())
+for(i in 1:length(POSES)){
+    temp = p4 %>% filter(pose == POSES[i])
+    ps = unique(temp$parameter)
+    for(j in 1:length(ps)){
+        print(sprintf("Computing Pose %s, parameter: %s", POSES[i], ps[j]))
+        temp1 = temp %>% filter(parameter == ps[j])
+        seeds = unique(temp1$seed)
+        for(k in 1:length(seeds)){
+            tmpseed = seeds[k]
+            print(sprintf("    seed: %s", as.character(tmpseed)))
+            
+            ls_est = results %>% filter(seed == tmpseed, parameter == ps[j], pose == POSES[i], model == 'LS') %>% select(est)
+            bayes_est = results %>% filter(seed == tmpseed, parameter == ps[j], pose == POSES[i], model == 'Bayes_p4') %>% select(est)
+            
+            # Equilivance of Bayes and LS
+            if((temp$est[k] - (2* temp1$ts_se[k]) < ls_est)  &(temp1$est[k] + (2* temp1$ts_se[k]) > ls_est)){
+                tmpcvgls = 1
+            } else{
+                tmpcvgls =0
+            }
+            
+            # equilivance of Bayes and True Val
+            if((temp$est[k] - (2* temp1$ts_se[k]) < TRUEVALS[[ps[j]]])  &(temp1$est[k] + (2* temp1$ts_se[k]) > TRUEVALS[[ps[j]]])){
+                tmpcvgtrue = 1
+            } else{
+                tmpcvgtrue =0
+            }
+            
+            
+            tmpimprv = as.numeric((abs(bayes_est - TRUEVALS[[ps[j]]])) < (abs(ls_est  - TRUEVALS[[ps[j]]])))
+            
+            toappend = data.frame(seed = tmpseed, pose = POSES[i], model = "Bayes_p4", parameter = ps[j], 
+                                  equilivance_ls = tmpcvgls, equilivance_true = tmpcvgtrue, outperformed = tmpimprv)
+            Bayes_perf = rbind(Bayes_perf, toappend)
+            
+        }
+        
+    }
+}
+
+Bayes_perf_p4 = Bayes_perf %>% group_by(pose, model, parameter) %>% summarize(equilivance_ls = mean(equilivance_ls), equilivance_true = mean(equilivance_true),
+                                                                              perf = mean(outperformed))
+
+## Prior 5
+p5 = results %>% filter(model =='Bayes_p5' )
+Bayes_perf = data.frame(seed = numeric(), pose = character(), model = character(), parameter = character(), 
+                        equilivance_ls = numeric(), equilivance_true = numeric(),outperformed = numeric())
+for(i in 1:length(POSES)){
+    temp = p5 %>% filter(pose == POSES[i])
+    ps = unique(temp$parameter)
+    for(j in 1:length(ps)){
+        print(sprintf("Computing Pose %s, parameter: %s", POSES[i], ps[j]))
+        temp1 = temp %>% filter(parameter == ps[j])
+        seeds = unique(temp1$seed)
+        for(k in 1:length(seeds)){
+            tmpseed = seeds[k]
+            print(sprintf("    seed: %s", as.character(tmpseed)))
+            
+            ls_est = results %>% filter(seed == tmpseed, parameter == ps[j], pose == POSES[i], model == 'LS') %>% select(est)
+            bayes_est = results %>% filter(seed == tmpseed, parameter == ps[j], pose == POSES[i], model == 'Bayes_p5') %>% select(est)
+            
+            # Equilivance of Bayes and LS
+            if((temp$est[k] - (2* temp1$ts_se[k]) < ls_est)  &(temp1$est[k] + (2* temp1$ts_se[k]) > ls_est)){
+                tmpcvgls = 1
+            } else{
+                tmpcvgls =0
+            }
+            
+            # equilivance of Bayes and True Val
+            if((temp$est[k] - (2* temp1$ts_se[k]) < TRUEVALS[[ps[j]]])  &(temp1$est[k] + (2* temp1$ts_se[k]) > TRUEVALS[[ps[j]]])){
+                tmpcvgtrue = 1
+            } else{
+                tmpcvgtrue =0
+            }
+            
+            
+            tmpimprv = as.numeric((abs(bayes_est - TRUEVALS[[ps[j]]])) < (abs(ls_est  - TRUEVALS[[ps[j]]])))
+            
+            toappend = data.frame(seed = tmpseed, pose = POSES[i], model = "Bayes_p5", parameter = ps[j], 
+                                  equilivance_ls = tmpcvgls, equilivance_true = tmpcvgtrue, outperformed = tmpimprv)
+            Bayes_perf = rbind(Bayes_perf, toappend)
+            
+        }
+        
+    }
+}
+
+Bayes_perf_p5 = Bayes_perf %>% group_by(pose, model, parameter) %>% summarize(equilivance_ls = mean(equilivance_ls), equilivance_true = mean(equilivance_true),
+                                                                              perf = mean(outperformed))
+Bayes_perf = rbind(Bayes_perf_p1, Bayes_perf_p2, Bayes_perf_p3, Bayes_perf_p4, Bayes_perf_p5)
 
 Bayes_perf
-write.table(Bayes_perf, "Performance_rand1.csv", sep=',', row.names = F)
 
 
 ################################################################################
