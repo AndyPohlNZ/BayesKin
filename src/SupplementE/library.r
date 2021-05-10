@@ -5,11 +5,12 @@
 ## Written by: Andy Pohl
 ## UofC - Faculty of Kinesiology
 ## June-Dec 2020
-## Revision 1: April 2020
+## Revision 1: May 2020
 ################################################################
 
 ########################### library.r  #########################
-## Contains source functions for BayesKin package
+## Contains source functions for BayesKin package - modified for performing
+## sensitivity to measurement noise.
 ################################################################
 ##### Preliminaries
 library(coda)
@@ -543,11 +544,14 @@ Bayes_soln = function(y, links, mdlfile,
     if(grepl('p4|p5', mdlfile)){
         # LS centered priors require the ls solution
       jags_input$ls_r = ls_est[1:2]
-      jags_input$ls_theta = ls_est[3:(3+nlinks)]
+      jags_input$ls_theta = ls_est[3:(2+nlinks)]
       jags_input$ls_sigma = ls_est[length(ls_est)]
     }
 
     if(init_type =='true_vals'){
+      r_true = true_vals[1:2]
+      theta_true = true_vals[3:(2+nlinks)]
+      sigma_true = true_vals[length(ls_est)]
       if(grepl('p3', mdlfile)){
         # if weakly informative prior specify inits in terms of hip, knee and ankle angles.
         print('Computing Bayes P3 solution with initial Values set to the TRUE VALUES')
@@ -567,6 +571,7 @@ Bayes_soln = function(y, links, mdlfile,
         inits = list(thetar = theta_true * pi/180,
                      r = r_true,
                      sigma = sigma_true)
+
       }
     }
     else if(init_type == 'random'){
@@ -645,7 +650,14 @@ Bayes_soln = function(y, links, mdlfile,
         inits = list(theta = c(ls_est[3:(nlinks+2)]),
                      r = c(ls_est[1], ls_est[2]),
                      sigma = tail(ls_est,1))
-      }else{
+      }else if (grepl('p1_2', mdlfile)){
+        print('Computing Bayes P1_2  solution with initial Values set to the LS VALUES')
+        jags_input$true_vals = true_vals
+        inits = list(thetar = c(ls_est[3:(nlinks+2)]) * pi/180,
+                     r = c(ls_est[1], ls_est[2]),
+                     tau = 1/tail(ls_est,1)/tail(ls_est,1))
+      }
+      else{
         print('Computing Bayes P1  solution with initial Values set to the LS VALUES')
         inits = list(thetar = c(ls_est[3:(nlinks+2)]) * pi/180,
                      r = c(ls_est[1], ls_est[2]),
@@ -665,7 +677,7 @@ Bayes_soln = function(y, links, mdlfile,
   # Sample from model
   out1 = coda.samples(model = m1,
                       variable.names = c("theta", "r", "sigma"),
-                      n.iter = 100000,
+                      n.iter = 50000,
                       thin = 5)
   t2 = Sys.time()
 

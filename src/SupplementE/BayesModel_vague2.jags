@@ -1,0 +1,46 @@
+
+model{
+
+    pi = 3.14159265359;
+
+    # rotation matricies
+    for(i in 1:nlinks){
+      Gam[i,1,1] <- cos(thetar[i])
+      Gam[i,2,1] <- sin(thetar[i])
+      Gam[i,1,2] <- -sin(thetar[i])
+      Gam[i,2,2] <- cos(thetar[i])
+    }
+
+    ## Joint positions
+    J[1,1:ndim] <- r[1:ndim]
+    for(i in 2:nlinks){
+      J[i,1:ndim] <- J[i-1,1:ndim] + Gam[i-1,1:ndim,1:ndim] %*% leng[i-1,1:ndim]
+    }
+
+    # vcm
+    #vcm[1,1] = 1/sigma/sigma
+    #vcm[1,2] = 0
+    #vcm[2,1] = 0
+    #vcm[2,2] = 1/sigma/sigma
+
+
+    for(i in 1:nlinks){  ## number of links: 1, 2 or 3
+      for(j in 1:nmarkers[i]){  ## number of markers
+        alpha[i,j,1:ndim] <- J[i,1:ndim] + Gam[i,1:ndim,1:ndim]%*%x[i,j,1:ndim]
+        #y[i,j,1:ndim] ~ dmnorm(alpha[i,j,1:ndim], vcm) #mvn normal
+        for(k in 1:ndim){
+            y[i,j,k] ~ dnorm(alpha[i,j,k], 1/sigma/sigma)
+        }
+      }
+    }
+
+    ##### PRIORS ######
+    for(i in 1:nlinks){
+      thetar[i] ~ dunif(-pi, pi)
+      theta[i] <- thetar[i] * 180 / pi
+    }
+    for(k in 1:ndim){
+      r[k] ~ dunif(-10,10)
+    }
+    sigma ~ dunif(0,1)
+}

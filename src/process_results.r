@@ -16,7 +16,7 @@
 # preliminaries 
 rm(list = ls()) # clear workspace
 
-library('rjags') # load rstan package to analysie rstan objects
+library('rjags') # load rstan package to analyze rstan objects
 library('coda') # load coda package for mcmc analysis
 
 RESULTS_DIR = "" # location of results directory

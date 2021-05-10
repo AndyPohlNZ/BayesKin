@@ -18,7 +18,7 @@
 ## 0) Prelimaries
 rm(list = ls())
 
-WORKING_DIR = "" # Replace with appropiate location of working directory on local PC
+WORKING_DIR = "" # Replace with appropriate location of working directory on local PC
 SAVE_MDL = TRUE # assume save
 
 INIT_TYPE = 'ls_est' # either 'true_vals', 'ls_est', 'random' 
