@@ -1,0 +1,14 @@
+\begin{thebibliography}{1}
+\expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
+\providecommand{\bibinfo}[2]{#2}
+\ifx\xfnm\relax \def\xfnm[#1]{\unskip,\space#1}\fi
+%Type = Article
+\bibitem[{Brooks \& Gelman(1998)}]{brooks_general_1998}
+\bibinfo{author}{Brooks, S.~P.}, \& \bibinfo{author}{Gelman, A.}
+  (\bibinfo{year}{1998}).
+\newblock \bibinfo{title}{General {Methods} for {Monitoring} {Convergence} of
+  {Iterative} {Simulations}}.
+\newblock {\it \bibinfo{journal}{Journal of Computational and Graphical
+  Statistics}\/},  {\it \bibinfo{volume}{7}\/}, \bibinfo{pages}{434--455}.
+
+\end{thebibliography}

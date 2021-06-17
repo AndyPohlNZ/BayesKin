@@ -1,0 +1,116 @@
+% ------------------------------------------------------------------ %
+% Examination of a Bayesian approach to inverse kinematics.
+% Andrew J. Pohl, Matthew R. Schofield & Reed Ferber
+% Submitted to Journal of Biomechanics March 2021
+% SupplementaryMaterialA.tex
+% ------------------------------------------------------------------ %
+\documentclass{article}
+\usepackage{setspace}
+\input{structure.tex} 
+
+% Label figures/tables starting with A
+\renewcommand{\thefigure}{A\arabic{figure}}
+\setcounter{figure}{0}
+
+\renewcommand{\thetable}{A\arabic{table}}
+\setcounter{table}{0}
+
+\title{Supplementary Material A - Additional Results} 
+
+\author{Andrew J. Pohl, Matthew R. Schofield \&  Reed Ferber} 
+
+\date{University of Calgary \today} 
+%--------------------------------------------------------------------- %
+
+\begin{document}
+\linenumbers
+\maketitle 
+
+\doublespacing
+
+The following appendix contains additional results cited within the body of the accompanying article.  All research code can be found at: \href{https://github.com/AndyPohlNZ/BayesKin}{https://github.com/AndyPohlNZ/BayesKin}.
+\section{Model Performance}
+Performance of each model on identifying the underling pose parameters when the the least-squares solution of each simulation are used as initial values for MCMC sampling (Bayesian Models) are presented for 1 and 2 link chains in Figures \ref{fig:StripChart_SingleLink_True} and \ref{fig:StripChart_DoubleLink_True} respectfully. Results for the 3-link problem are found within the body of the main text. Clearly all models are unbiased yet the Bayesian model with the 2nd set of priors (equation (5) in the main text) demonstrates considerably less variance than the other models.
+
+\begin{figure}
+\centering
+\includegraphics[width=\textwidth]{./Figures/SingleLink_StripChart.pdf}
+\caption{Performance of the estimators from each model (columns) on each parameter (rows) for 1000 single link simulations where initial values were specified using the true values.  True values for each parameter identified in orange.}
+\label{fig:StripChart_SingleLink_True}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[width=\textwidth]{./Figures/DoubleLink_StripChart.pdf}
+\caption{Performance of the estimators from each model (columns) on each parameter (rows) for 1000 double link simulations where initial values were specified using the true values.  True values for each parameter identified in orange.}
+\label{fig:StripChart_DoubleLink_True}
+\end{figure}
+
+\section{Computational Time}
+The average computational time for each model is presented in Table \ref{tab:Comptime_Truevals}  In general it took an order of magnitude longer to obtain 10000 MCMC samples from the Bayesian posterior than to solve the non linear optimization problem to obtain the LS estimator.  Both numerical optimisation and MCMC sampling were performed on the same mobile workstation (P51, Intel i7-7820HQ 2.6GHz processor, 32GB RAM; Lenovo, Hong Kong.).
+\begin{table}
+   \centering
+   %\resizebox{}{!}{%
+   \begin{tabular}{l c c c c c c c}
+       \hline
+       \multirow{2}{*}{Model} & \multicolumn{3}{c}{True Initial Values} \\
+      						& 1-link & 2-link & 3-link \\
+  		\hline
+  		Least-Squares & 0.57 (0.70) & 1.01 (0.53) & 2.17 (0.89)  \\
+  		Bayes P1 & 8.29 (1.09) & 17.40 (2.18)& 27.60 (3.32)  \\
+  		Bayes P2 & 5.34 (1.61) & 11.70 (1.51)& 19.10 (2.32) \\
+  		Bayes P3 & 8.64 (1.16) & 19.50 (2.28) & 33.40 (3.98)\\
+       \hline
+   \end{tabular}
+   %}
+   \caption{Average (SD) computation time (\si{\second}) for each model on 1, 2 and 3 link chains.}
+   \label{tab:Comptime_Truevals}
+\end{table}
+
+\section{Markov Chain Monte Carlo}
+In general sound convergence and efficient sampling were obtained for each of the Bayesian models for 1, 2 and 3 link problems.  This is highlighted in the fact that $< 0.1$\% of simulations were excluded on the basis of poor convergence with a $\hat{R}$ statistic greater than 1.1 units \citep{brooks_general_1998}.  Exemplary trace plots are provided for a 3 link problem in Figure \ref{fig:traceplot}. Table \ref{tab:ESS_table} outlines the mean effective sample size for each parameter along with the mean $\hat{R}$ statistic.  The fact that we have large numbers of effective samples and a $\hat{R}$ close to 1 gives us confidence in the parameter values obtained, the exception being estimates for the measurement noise parameter ($\sigma$) obtained using the 2nd set of priors.  This due to the extremely informative nature of the prior distribution for this model.
+
+\begin{figure}
+\centering
+\includegraphics[width=\textwidth]{./Figures/traceplot.pdf}
+\caption{Typical traceplot showing MCMC sampling for each parameter in the 3-link problem.  Each of four independent MCMC chains is depicted in a differing color.}
+\label{fig:traceplot}
+\end{figure}
+
+
+\begin{table}
+   \centering
+   \resizebox{\textwidth}{!}{%
+   \begin{tabular}{l l c c cc c cc c}
+       \hline
+       \multicolumn{2}{c}{Pose} & \multicolumn{2}{c}{Bayes P1} &&\multicolumn{2}{c}{Bayes P2}&&\multicolumn{2}{c}{Bayes P3} \\
+      						&& ESS &$\hat{R}$ && ESS & $\hat{R}$ && ESS & $\hat{R}$ \\
+  		\hline
+  		\multirow{4}{*}{1-Link} & $r_1$ & 3105.3 (217.3) & 1.004 (0.005) && 60821.5 (890.7)& 1.000 (0.001) && 3121.6 (201.0)& 1.004 (0.005) \\
+  									& $r_2$ & 3212.5 (248.1) & 1.004 (0.006) && 66222.6 (990.2) & 1.000 (0.001) && 3238.5 (225.2) & 1.004 (0.004) \\
+  									& $\theta_1$ & 3045.4 (212.6) & 1.004 (0.005) && 55826.2 (734.6) & 1.000 (0.001) && 3065.7 (195.8) & 1.004 (0.004)\\
+  									& $\sigma$ & 11205.9 (2175.0) & 1.003 (0.006) && 0.0 (0.0) & 1.000 (0.001) && 11394.9 (1926.2) & 1.003 (0.005) \\
+       \hline
+       \multirow{5}{*}{2-Link} & $r_1$ & 4229.9 (124.1) & 1.002 (0.001) && 45433.2 (738.6) & 1.000 (0.001) && 3310.4 (115.3) & 1.002 (0.001) \\
+  									& $r_2$ & 4281.1 (126.1) &  1.001 (0.001) && 42263.9 (680.0) & 0.000 (0.001) && 3270.4 (106.4) & 1.002 (0.001)\\
+  									& $\theta_1$ & 3995.9 (108.1) & 1.002 (0.001) && 34862.1 (501.9) & 1.000 (0.001) && 3046.1 (92.9) & 1.002 (0.001) \\
+  									& $\theta_2$ & 18101.3 (1023.3) & 1.000 (0.001) && 63292.2 (1111.3) & 1.000 (0.001) && 12891.0 (812.5) & 1.000 (0.001)\\
+  									& $\sigma$ & 34083.8 (2252.0) & 1.000 (0.001) && 0.0 (0.0) & 1.000 (0.001) && 30393.7 (2321.5) & 1.000 (0.001) \\
+  	  \hline
+       \multirow{6}{*}{3-Link} & $r_1$ & 2961.1 (93.3) & 1.002 (0.001) && 32534.5 (639.1) & 1.000 (0.001) && 1732.4 (67.9) & 1.004 (0.001)\\
+  									& $r_2$ & 3003.34 (95.9) & 0.002 (0.001) && 30606.2 (576.9) & 1.000 (0.001) && 1693.7 (63.1) & 1.004 (0.002) \\
+  									& $\theta_1$ & 2792.9 (79.0) & 1.002 (0.001) && 23195.1 (396.2) & 1.000 (0.001) && 1552.6 (50.6) & 1.004 (0.003) \\
+  									& $\theta_2$ & 11821.0 (670.9) & 1.000 (0.001) && 47623.6 (961.1) & 1.000 (0.001) && 6136.4 (416.9) & 1.001 (0.001)\\
+  									& $\theta_3$ & 20366.4 (1045.1) & 1.000 (0.001) && 62508.2 (1206.1) & 1.000 (0.001) && 12175.2 (820.3) & 1.001 (0.001) \\
+  									& $\sigma$ & 40926.7 (2426.6) & 1.000 (.001) && 0.0 (0.0) & 1.000 (0.001) && 32230.4 (2722.3) & 1.000 (0.001) \\
+  	\hline  	  
+
+   \end{tabular}
+   }
+   \caption{Average (SD) effective sample size (ESS) and R hat statistic $\hat{R}$ for each of the Bayesian models.}
+   \label{tab:ESS_table}
+\end{table}
+
+\bibliography{References.bib}
+
+\end{document}

@@ -1,0 +1,597 @@
+% ------------------------------------------------------------------ %
+% Examination of a Bayesian approach to inverse kinematics.
+% Andrew J. Pohl, Matthew R. Schofield & Reed Ferber
+% Submitted to Journal of Biomechanics March 2021
+% References.bib
+% ------------------------------------------------------------------ %
+
+@book{nigg_biomechanics_1999,
+	address = {West Sussex, England},
+	edition = {2nd},
+	title = {Biomechanics of the {Musculo}-skeletal {System}},
+	url = {https://www.wiley.com/en-us/Biomechanics+of+the+Musculo+skeletal+System+%2C+3rd+Edition-p-9780470017678},
+		abstract = {The latest edition of this well organised and authoritative book provides a comprehensive account of the mechanics of the neuro-musculo-skeletal system. Covering the key areas including the properties of biomaterials, common measuring techniques and modelling, Biomechanics of the Musculo-skeletal System, Third Edition also integrates historical aspects thus building a bridge between old and familiar knowledge and the latest developments in biomechanics. As with the previous edition there are numerous applications and extensive questions and answers at the end of sections. Specific changes for this edition include: Major revision of the section on biological materials including bone, cartilage, ligament, tendon, muscle and joints and new discussion of failure and healing Extensive updating of material covering force, pressure distribution, optical methods and simulation Increase in the number and type of applications across a broad range of disciplines Biomechanics of the Musculo-skeletal System, Third Edition is an invaluable resource for all students, professionals and researchers concerned with biomechanical aspects of the human or animal body.},
+		language = {en-us},
+		urldate = {2020-05-29},
+		publisher = {John Wiley \& Sons Ltd.},
+		author = {Nigg, B. M. and Herzog, W.},
+		year = {1999},
+		file = {Snapshot:/home/andy-pohl/Zotero/storage/JH3HQQ6M/Biomechanics+of+the+Musculo+skeletal+System+,+3rd+Edition-p-9780470017678.html:text/html}
+	}
+
+@article{chiari_human_2005,
+	title = {Human movement analysis using stereophotogrammetry part 2: {Instrumental} errors},
+	volume = {21},
+	issn = {09666362},
+	url = {https://linkinghub.elsevier.com/retrieve/pii/S0966636204000682},
+	doi = {10.1016/j.gaitpost.2004.04.004},
+	abstract = {This paper reviews the main aspects involved with the management of instrumental errors associated with video-based optoelectronic stereophotogrammetry. Insights on how such errors propagate to kinematic quantities are of great interest in the ﬁeld of human movement analysis to improve the precision and reliability of measurements. The review focuses on the technical assessment and analytical compensation procedures to cope with instrumental errors. Relevant contributions dealing with intrinsic sources of systematic and random errors, such as the issues concerning camera calibration and ﬁltering and smoothing of marker position data, are presented. Procedures for marker imaged processing, and missing marker recovery are also surveyed. Methods for checking the accuracy and precision of stereophotogrammetric systems are then reviewed. Finally, since the desired outcome of the movement measurements is a reliable estimate of body segment kinematics, state-of-the-art techniques proposed for minimization of error propagation arising from a cluster of external markers are described.},
+	language = {en},
+	number = {2},
+	urldate = {2019-06-14},
+	journal = {Gait \& Posture},
+	author = {Chiari, Lorenzo and Croce, Ugo Della and Leardini, Alberto and Cappozzo, Aurelio},
+	month = feb,
+	year = {2005},
+	pages = {197--211},
+	file = {Chiari et al. - 2005 - Human movement analysis using stereophotogrammetry.pdf:/home/andy-pohl/Zotero/storage/FE5Q7LV7/Chiari et al. - 2005 - Human movement analysis using stereophotogrammetry.pdf:application/pdf;Chiari et al. - 2005 - Human movement analysis using stereophotogrammetry.pdf:/home/andy-pohl/Zotero/storage/FYI4Z5ZP/Chiari et al. - 2005 - Human movement analysis using stereophotogrammetry.pdf:application/pdf}
+}
+
+@article{lu_bone_1999,
+	title = {Bone position estimation from skin marker co-ordinates using global optimisation with joint constraints},
+	volume = {32},
+	issn = {00219290},
+	url = {https://linkinghub.elsevier.com/retrieve/pii/S0021929098001584},
+	doi = {10.1016/S0021-9290(98)00158-4},
+	abstract = {Widespread use of gait or motion analysis in the diagnosis of patients with locomotor pathology and the subsequent planning and assessment of treatment has been limited because of its reliability, particularly in evaluating frontal and transverse plane components. This is because spatial reconstruction of the musculoskeletal system and calculation of its kinematics and kinetics via a skin marker-based multi-link model are subject to marker skin movement artefacts. Traditional methods treat each body segment separately without imposing joint constraints, resulting in apparent dislocations at joints predominantly because of skin movement artefacts. An optimisation method for the determination of the positions and orientations of multi-link musculoskeletal models from marker co-ordinates is presented. It is based on the minimisation of the weighted sum of squared distances between measured and model-determined marker positions. The model imposes joint constraints. Numerical experiments were performed to show that the new method is capable of eliminating joint dislocations and giving more accurate model position and orientation estimations. It is suggested that, with joint constraints and a global error compensation scheme, the eﬀects of measurement errors on the reconstruction of the musculoskeletal system and subsequent mechanical analyses can be reduced globally. The proposed method minimises errors in axial rotation and ab/adduction at the joints and may extend the applicability of gait analysis to clinical problems. 1999 Elsevier Science Ltd. All rights reserved.},
+	language = {en},
+	number = {2},
+	urldate = {2020-04-28},
+	journal = {Journal of Biomechanics},
+	author = {Lu, T.-W. and O’Connor, J.J.},
+	month = feb,
+	year = {1999},
+	pages = {129--134},
+	file = {Lu and O’Connor - 1999 - Bone position estimation from skin marker co-ordin.pdf:/home/andy-pohl/Zotero/storage/AJJZ7LR6/Lu and O’Connor - 1999 - Bone position estimation from skin marker co-ordin.pdf:application/pdf}
+}
+
+@article{soderkvist_determining_1993,
+	title = {Determining the movements of the skeleton using well-configured markers},
+	volume = {26},
+	issn = {00219290},
+	url = {https://linkinghub.elsevier.com/retrieve/pii/002192909390098Y},
+	doi = {10.1016/0021-9290(93)90098-Y},
+	abstract = {The problem of determining skeletal movements in three dimensions by using a number of landmarks is treated. We present a method that determines the motion of a rigid body by using the positions of the landmarks in least-squares sense. The method uses the singular value decomposition of a matrix derived from the positions of the landmarks. We show how one can use this method to express movement of skeleton segments relative to each other. As many others have pointed out, the movement can be very ill determined if the landmarks are badly configured. We present a condition number for the problem with good geometrical properties. The condition number depends on the configuration of the landmarks and indicates how to distribute the landmarks in a suitable way.},
+	language = {en},
+	number = {12},
+	urldate = {2019-06-14},
+	journal = {Journal of Biomechanics},
+	author = {Soderkvist, Inge and Wedin, Per-Ake},
+	month = dec,
+	year = {1993},
+	pages = {1473--1477},
+	file = {Söderkvist and Wedin - 1993 - Determining the movements of the skeleton using we.pdf:/home/andy-pohl/Zotero/storage/TF846W5L/Söderkvist and Wedin - 1993 - Determining the movements of the skeleton using we.pdf:application/pdf;Söderkvist and Wedin - 1993 - Determining the movements of the skeleton using we.pdf:/home/andy-pohl/Zotero/storage/UCGNS6Z7/Söderkvist and Wedin - 1993 - Determining the movements of the skeleton using we.pdf:application/pdf;Söderkvist and Wedin - 1993 - Determining the movements of the skeleton using we.pdf:/home/andy-pohl/Zotero/storage/B67HRULB/Söderkvist and Wedin - 1993 - Determining the movements of the skeleton using we.pdf:application/pdf}
+}
+
+@article{arun_least-squares_1987,
+	title = {Least-{Squares} {Fitting} of {Two} 3-{D} {Point} {Sets}},
+	volume = {PAMI-9},
+	issn = {0162-8828},
+	url = {http://ieeexplore.ieee.org/lpdocs/epic03/wrapper.htm?arnumber=4767965},
+	doi = {10.1109/TPAMI.1987.4767965},
+	abstract = {Two point sets \{ pi \} and \{ p' \}; i = 1, 2,9 , N are related by p' = Rpi + T + Ni, where R is a rotation matrix, T a translation vector, and Ni a noise vector. Given \{ pi \} and \{ p' \}, we present an algorithm for finding the least-squares solution of R and T, which is based on the singular value decomposition (SVD) of a 3 x 3 matrix. This new algorithm is compared to two earlier algorithms with respect to computer time requirements.},
+	language = {en},
+	number = {5},
+	urldate = {2019-08-28},
+	journal = {IEEE Transactions on Pattern Analysis and Machine Intelligence},
+	author = {Arun, K. S. and Huang, T. S. and Blostein, S. D.},
+	month = sep,
+	year = {1987},
+	pages = {698--700},
+	file = {Arun et al. - 1987 - Least-Squares Fitting of Two 3-D Point Sets.pdf:/home/andy-pohl/Zotero/storage/D2P4W725/Arun et al. - 1987 - Least-Squares Fitting of Two 3-D Point Sets.pdf:application/pdf}
+}
+
+@article{spoor_rigid_1980,
+	title = {Rigid body motion calculated from spatial co-ordinates of markers},
+	volume = {13},
+	issn = {00219290},
+	url = {https://linkinghub.elsevier.com/retrieve/pii/0021929080900202},
+	doi = {10.1016/0021-9290(80)90020-2},
+	language = {en},
+	number = {4},
+	urldate = {2020-10-12},
+	journal = {Journal of Biomechanics},
+	author = {Spoor, C.W. and Veldpaus, F.E.},
+	month = jan,
+	year = {1980},
+	pages = {391--393},
+	file = {Spoor and Veldpaus - 1980 - Rigid body motion calculated from spatial co-ordin.pdf:/home/andy-pohl/Zotero/storage/UH5BNGR9/Spoor and Veldpaus - 1980 - Rigid body motion calculated from spatial co-ordin.pdf:application/pdf}
+}
+
+@article{chen_investigation_1994,
+	title = {An investigation on the accuracy of three-dimensional space reconstruction using the direct linear transformation technique},
+	volume = {27},
+	issn = {00219290},
+	url = {https://linkinghub.elsevier.com/retrieve/pii/0021929094900248},
+	doi = {10.1016/0021-9290(94)90024-8},
+	language = {en},
+	number = {4},
+	urldate = {2020-09-02},
+	journal = {Journal of Biomechanics},
+	author = {Chen, Liang and Armstrong, Charles W. and Raftopoulos, Demetrios D.},
+	month = apr,
+	year = {1994},
+	pages = {493--500},
+	file = {Chen et al. - 1994 - An investigation on the accuracy of three-dimensio.pdf:/home/andy-pohl/Zotero/storage/QN4TITH4/Chen et al. - 1994 - An investigation on the accuracy of three-dimensio.pdf:application/pdf}
+}
+
+@article{osis_effects_2016,
+	title = {Effects of {Simulated} {Marker} {Placement} {Deviations} on {Running} {Kinematics} and {Evaluation} of a {Morphometric}-{Based} {Placement} {Feedback} {Method}},
+	volume = {11},
+	issn = {1932-6203},
+	url = {https://dx.plos.org/10.1371/journal.pone.0147111},
+	doi = {10.1371/journal.pone.0147111},
+	language = {en},
+	number = {1},
+	urldate = {2019-06-14},
+	journal = {PLOS ONE},
+	author = {Osis, Sean T. and Hettinga, Blayne A. and Macdonald, Shari and Ferber, Reed},
+	editor = {Lucia, Alejandro},
+	month = jan,
+	year = {2016},
+	pages = {e0147111},
+	file = {Osis et al. - 2016 - Effects of Simulated Marker Placement Deviations o.PDF:/home/andy-pohl/Zotero/storage/92ICF6S3/Osis et al. - 2016 - Effects of Simulated Marker Placement Deviations o.PDF:application/pdf}
+}
+
+@article{pataky_bayesian_2019,
+	title = {Bayesian inverse kinematics vs. least-squares inverse kinematics in estimates of planar postures and rotations in the absence of soft tissue artifact},
+	volume = {82},
+	issn = {00219290},
+	url = {https://linkinghub.elsevier.com/retrieve/pii/S0021929018308388},
+	doi = {10.1016/j.jbiomech.2018.11.007},
+	abstract = {A variety of inverse kinematics (IK) algorithms exist for estimating postures and displacements from a set of noisy marker positions, typically aiming to minimize IK errors by distributing errors amongst all markers in a least-squares (LS) sense. This paper describes how Bayesian inference can contrastingly be used to maximize the probability that a given stochastic kinematic model would produce the observed marker positions. We developed Bayesian IK for two planar IK applications: (1) kinematic chain posture estimates using an explicit forward kinematics model, and (2) rigid body rotation estimates using implicit kinematic modeling through marker displacements. We then tested and compared Bayesian IK results to LS results in Monte Carlo simulations in which random marker error was introduced using Gaussian noise amplitudes ranging uniformly between 0.2 mm and 2.0 mm. Results showed that Bayesian IK was more accurate than LS-IK in over 92\% of simulations, with the exception of one center-of-rotation coordinate planar rotation, for which Bayesian IK was more accurate in only 68\% of simulations. Moreover, while LS errors increased with marker noise, Bayesian errors were comparatively unaffected by noise amplitude. Nevertheless, whereas the LS solutions required average computational durations of less than 0.5 s, average Bayesian IK durations ranged from 11.6 s for planar rotation to over 2000 s for kinematic chain postures. These results suggest that Bayesian IK can yield order-of-magnitude IK improvements for simple planar IK, but also that its computational demands may make it impractical for some applications.},
+	language = {en},
+	urldate = {2019-06-14},
+	journal = {Journal of Biomechanics},
+	author = {Pataky, Todd C. and Vanrenterghem, Jos and Robinson, Mark A.},
+	month = jan,
+	year = {2019},
+	pages = {324--329},
+	file = {Pataky et al. - 2019 - Bayesian inverse kinematics vs. least-squares inve.pdf:/home/andy-pohl/Zotero/storage/AU8LYQ2H/Pataky et al. - 2019 - Bayesian inverse kinematics vs. least-squares inve.pdf:application/pdf}
+}
+
+@article{serrien_bayesian_2020,
+	title = {Bayesian vs. least-squares inverse kinematics: {Simulation} experiments with models of {3D} rigid body motion and {2D} models including soft-tissue artefacts},
+	volume = {109},
+	issn = {00219290},
+	shorttitle = {Bayesian vs. least-squares inverse kinematics},
+	url = {https://linkinghub.elsevier.com/retrieve/pii/S0021929020303250},
+	doi = {10.1016/j.jbiomech.2020.109902},
+	abstract = {Two simulation experiments are presented to gauge the accuracy of a new inverse kinematics method based on Bayesian inference (BIK; Pataky et al., 2019) in more realistic models than were considered previously. The ﬁrst application concerns planar kinematics in the presence of soft-tissue artefacts and the second application concerns rigid body kinematics in 3D with ﬁnite helical axes (FHA). The percentage of simulations in which BIK was more accurate than least-squares based methods was only high in cases of relatively large noise magnitudes (noise SD {\textgreater}5 mm) or when the rotation magnitude was very small (65 deg) in the 3D FHA model. Correlated parameters are the likely culprit of the low performance of BIK. Also computation time is a major deﬁcit of the BIK approach (Æ20 s for the movement between two time frames). These results indicate that more research will be necessary to improve the accuracy of BIK for complex biomechanical models at realistic noise levels and to reduce computation time.},
+	language = {en},
+	urldate = {2020-07-22},
+	journal = {Journal of Biomechanics},
+	author = {Serrien, Ben and Pataky, Todd and Baeyens, Jean-Pierre and Cattrysse, Erik},
+	month = aug,
+	year = {2020},
+	pages = {109902},
+	file = {Serrien et al. - 2020 - Bayesian vs. least-squares inverse kinematics Sim.pdf:/home/andy-pohl/Zotero/storage/8NTZYA73/Serrien et al. - 2020 - Bayesian vs. least-squares inverse kinematics Sim.pdf:application/pdf}
+}
+
+@article{gelfand_sampling-based_1990,
+	title = {Sampling-{Based} {Approaches} to {Calculating} {Marginal} {Densities}},
+	volume = {85},
+	language = {en},
+	number = {410},
+	journal = {Journal of the American Statistical Association},
+	author = {Gelfand, Alan E and Smith, Adrian F M},
+	year = {1990},
+	pages = {13},
+	file = {Gelfand and Smith - 2020 - Sampling-Based Approaches to Calculating Marginal .pdf:/home/andy-pohl/Zotero/storage/B92472Q9/Gelfand and Smith - 2020 - Sampling-Based Approaches to Calculating Marginal .pdf:application/pdf}
+}
+
+@article{hastings_monte_1970,
+	title = {Monte {Carlo} sampling methods using {Markov} chains and their applications},
+	volume = {57},
+	abstract = {A generalization of the sampling method introduced by Metropolis et al. (1953) is presented along with an exposition of the relevant theory, techniques of application and methods and difficulties of assessing the error in Monte Carlo estimates. Examples of the methods, including the generation of random orthogonal matrices and potential applications of the methods to numerical problems arising in statistics, are discussed.},
+	language = {en},
+	number = {1},
+	journal = {Biometrika},
+	author = {Hastings, W K},
+	year = {1970},
+	file = {Hastings - Monte Carlo sampling methods using Markov chains a.pdf:/home/andy-pohl/Zotero/storage/7RA546PF/Hastings - Monte Carlo sampling methods using Markov chains a.pdf:application/pdf}
+}
+
+@article{neal_mcmc_2012,
+	title = {{MCMC} using {Hamiltonian} dynamics},
+	url = {http://arxiv.org/abs/1206.1901},
+	abstract = {Hamiltonian dynamics can be used to produce distant proposals for the Metropolis algorithm, thereby avoiding the slow exploration of the state space that results from the diffusive behaviour of simple random-walk proposals. Though originating in physics, Hamiltonian dynamics can be applied to most problems with continuous state spaces by simply introducing fictitious "momentum" variables. A key to its usefulness is that Hamiltonian dynamics preserves volume, and its trajectories can thus be used to define complex mappings without the need to account for a hard-to-compute Jacobian factor - a property that can be exactly maintained even when the dynamics is approximated by discretizing time. In this review, I discuss theoretical and practical aspects of Hamiltonian Monte Carlo, and present some of its variations, including using windows of states for deciding on acceptance or rejection, computing trajectories using fast approximations, tempering during the course of a trajectory to handle isolated modes, and short-cut methods that prevent useless trajectories from taking much computation time.},
+	language = {en},
+	urldate = {2020-12-07},
+	journal = {arXiv:1206.1901 [physics, stat]},
+	author = {Neal, Radford M.},
+	month = jun,
+	year = {2012},
+	note = {arXiv: 1206.1901},
+	keywords = {Statistics - Computation, Physics - Computational Physics},
+	file = {Neal - 2012 - MCMC using Hamiltonian dynamics.pdf:/home/andy-pohl/Zotero/storage/5P6BAFTU/Neal - 2012 - MCMC using Hamiltonian dynamics.pdf:application/pdf}
+}
+
+@article{eichelberger_analysis_2016,
+	title = {Analysis of accuracy in optical motion capture – {A} protocol for laboratory setup evaluation},
+	volume = {49},
+	issn = {00219290},
+	url = {https://linkinghub.elsevier.com/retrieve/pii/S0021929016305681},
+	doi = {10.1016/j.jbiomech.2016.05.007},
+	abstract = {Validity and reliability as scientiﬁc quality criteria have to be considered when using optical motion capture (OMC) for research purposes. Literature and standards recommend individual laboratory setup evaluation. However, system characteristics such as trueness, precision and uncertainty are often not addressed in scientiﬁc reports on 3D human movement analysis. One reason may be the lack of simple and practical methods for evaluating accuracy parameters of OMC.},
+	language = {en},
+	number = {10},
+	urldate = {2020-06-29},
+	journal = {Journal of Biomechanics},
+	author = {Eichelberger, Patric and Ferraro, Matteo and Minder, Ursina and Denton, Trevor and Blasimann, Angela and Krause, Fabian and Baur, Heiner},
+	month = jul,
+	year = {2016},
+	pages = {2085--2088},
+	file = {Eichelberger et al. - 2016 - Analysis of accuracy in optical motion capture – A.pdf:/home/andy-pohl/Zotero/storage/KM4TL8AE/Eichelberger et al. - 2016 - Analysis of accuracy in optical motion capture – A.pdf:application/pdf}
+}
+
+@book{millar_maximum_2011,
+	address = {Hoboken, N.J.},
+	series = {Statistics in {Practice}},
+	title = {Maximum {Likelihood} {Estimation} and {Inference} with {Examples} in {R}, {SAS}, and {ADMB}.},
+	publisher = {Wiley},
+	author = {Millar, R. B.},
+	year = {2011}
+}
+
+@article{byrd_limited_1995,
+	title = {A limited memory algorithm for bound constrained optimization},
+	volume = {16},
+	number = {5},
+	journal = {SIAM Journal on scientific computing},
+	author = {Byrd, Richard H. and Lu, Peihuang and Nocedal, Jorge and Zhu, Ciyou},
+	year = {1995},
+	note = {ISBN: 1064-8275
+		Publisher: SIAM},
+	pages = {1190--1208},
+	file = {204262.pdf:/home/andy-pohl/Zotero/storage/FQ3IGHUZ/204262.pdf:application/pdf}
+}
+
+@article{gelman_prior_2006,
+	title = {Prior distributions for variance parameters in hierarchical models (comment on article by {Browne} and {Draper})},
+	volume = {1},
+	issn = {1936-0975},
+	url = {http://projecteuclid.org/euclid.ba/1340371048},
+	doi = {10.1214/06-BA117A},
+	abstract = {Various noninformative prior distributions have been suggested for scale parameters in hierarchical models. We construct a new folded-noncentral-t family of conditionally conjugate priors for hierarchical standard deviation parameters, and then consider noninformative and weakly informative priors in this family. We use an example to illustrate serious problems with the inverse-gamma family of “noninformative” prior distributions. We suggest instead to use a uniform prior on the hierarchical standard deviation, using the half-t family when the number of groups is small and in other settings where a weakly informative prior is desired. We also illustrate the use of the half-t family for hierarchical modeling of multiple variance parameters such as arise in the analysis of variance.},
+	language = {en},
+	number = {3},
+	urldate = {2020-12-05},
+	journal = {Bayesian Analysis},
+	author = {Gelman, Andrew},
+	month = sep,
+	year = {2006},
+	pages = {515--534},
+	file = {Gelman - 2006 - Prior distributions for variance parameters in hie.pdf:/home/andy-pohl/Zotero/storage/PDT4NT5E/Gelman - 2006 - Prior distributions for variance parameters in hie.pdf:application/pdf}
+}
+\
+@article{buczek_stance_1990,
+	title = {Stance phase knee and ankle kinematics and kinetics during level and downhill running},
+	volume = {22},
+	number = {5},
+	journal = {Medicine and Science in SPorts and Exercise},
+	author = {Buczek, Frank L. and Cavanagh, R., Peter},
+	year = {1990},
+	pages = {669--677},
+	file = {Stance_phase_knee_and_ankle_kinematics_and.19.pdf:/home/andy-pohl/Zotero/storage/G9U3HAYL/Stance_phase_knee_and_ankle_kinematics_and.19.pdf:application/pdf}
+}
+
+@misc{plummer_jags_2017,
+	title = {{JAGS} {Version} 4.3.0 user manual},
+	url = {https://people.stat.sc.edu/hansont/stat740/jags_user_manual.pdf},
+	author = {Plummer, Martyn},
+	year = {2017},
+	file = {jags_user_manual.pdf:/home/andy-pohl/Zotero/storage/9H938IHB/jags_user_manual.pdf:application/pdf}
+}
+
+@article{brooks_general_1998,
+	title = {General {Methods} for {Monitoring} {Convergence} of {Iterative} {Simulations}},
+	volume = {7},
+	language = {en},
+	number = {4},
+	journal = {Journal of Computational and Graphical Statistics},
+	author = {Brooks, Stephen P and Gelman, Andrew},
+	year = {1998},
+	pages = {434--455},
+	file = {Brooks and Gelman - General Methods for Monitoring Convergence of Iter.pdf:/home/andy-pohl/Zotero/storage/WLU73XUD/Brooks and Gelman - General Methods for Monitoring Convergence of Iter.pdf:application/pdf}
+}
+
+@article{ferber_gait_2016,
+	title = {Gait biomechanics in the era of data science},
+	volume = {49},
+	issn = {00219290},
+	url = {https://linkinghub.elsevier.com/retrieve/pii/S0021929016311332},
+	doi = {10.1016/j.jbiomech.2016.10.033},
+	abstract = {Data science has transformed ﬁelds such as computer vision and economics. The ability of modern data science methods to extract insights from large, complex, heterogeneous, and noisy datasets is beginning to provide a powerful complement to the traditional approaches of experimental motion capture and biomechanical modeling. The purpose of this article is to provide a perspective on how data science methods can be incorporated into our ﬁeld to advance our understanding of gait biomechanics and improve treatment planning procedures. We provide examples of how data science approaches have been applied to biomechanical data. We then discuss the challenges that remain for effectively using data science approaches in clinical gait analysis and gait biomechanics research, including the need for new tools, better infrastructure and incentives for sharing data, and education across the disciplines of biomechanics and data science. By addressing these challenges, we can revolutionize treatment planning and biomechanics research by capitalizing on the wealth of knowledge gained by gait researchers over the past decades and the vast, but often siloed, data that are collected in clinical and research laboratories around the world.},
+	language = {en},
+	number = {16},
+	urldate = {2020-12-15},
+	journal = {Journal of Biomechanics},
+	author = {Ferber, Reed and Osis, Sean T. and Hicks, Jennifer L. and Delp, Scott L.},
+	month = dec,
+	year = {2016},
+	pages = {3759--3761},
+	file = {Ferber et al. - 2016 - Gait biomechanics in the era of data science.pdf:/home/andy-pohl/Zotero/storage/NK9N69JV/Ferber et al. - 2016 - Gait biomechanics in the era of data science.pdf:application/pdf}
+}
+
+@article{jauhiainen_hierarchical_2020,
+	title = {A hierarchical cluster analysis to determine whether injured runners exhibit similar kinematic gait patterns},
+	issn = {0905-7188, 1600-0838},
+	url = {https://onlinelibrary.wiley.com/doi/abs/10.1111/sms.13624},
+	doi = {10.1111/sms.13624},
+	abstract = {Previous studies have suggested that runners can be subgrouped based on homogeneous gait patterns, however, no previous study has assessed the presence of such subgroups in a population of individuals across a wide variety of injuries. Therefore, the purpose of this study was to assess whether distinct subgroups with homogeneous running patterns can be identified among a large group of injured and healthy runners and whether identified subgroups are associated with specific injury location. Three-dimensional kinematic data from 291 injured and healthy runners, representing both sexes and a wide range of ages (1066 years) was clustered using hierarchical cluster analysis. Cluster analysis revealed five distinct subgroups from the data. Kinematic differences between the subgroups were compared using one-way analysis of variance (ANOVA). Against our hypothesis, runners with the same injury types did not cluster together, but the distribution of different injuries within subgroups was similar across the entire sample. These results suggest that homogeneous gait patterns exist independent of injury location and that it is important to consider these underlying patterns when planning injury prevention or rehabilitation strategies.},
+	language = {en},
+	urldate = {2020-01-06},
+	journal = {Scandinavian Journal of Medicine \& Science in Sports},
+	author = {Jauhiainen, Susanne and Pohl, Andrew J. and Äyrämö, Sami and Kauppi, Jukka‐Pekka and Ferber, Reed},
+	month = jan,
+	year = {2020},
+	pages = {sms.13624},
+	file = {Jauhiainen et al. - 2020 - A hierarchical cluster analysis to determine wheth.pdf:/home/andy-pohl/Zotero/storage/LA8VFD2E/Jauhiainen et al. - 2020 - A hierarchical cluster analysis to determine wheth.pdf:application/pdf}
+}
+
+@article{gelman_objections_2008,
+	title = {Objections to {Bayesian} statistics},
+	volume = {3},
+	issn = {1936-0975},
+	url = {http://projecteuclid.org/euclid.ba/1340370429},
+	doi = {10.1214/08-BA318},
+	abstract = {Bayesian inference is one of the more controversial approaches to statistics. The fundamental objections to Bayesian methods are twofold: on one hand, Bayesian methods are presented as an automatic inference engine, and this raises suspicion in anyone with applied experience. The second objection to Bayes comes from the opposite direction and addresses the subjective strand of Bayesian inference. This article presents a series of objections to Bayesian inference, written in the voice of a hypothetical anti-Bayesian statistician. The article is intended to elicit elaborations and extensions of these and other arguments from non-Bayesians and responses from Bayesians who might have diﬀerent perspectives on these issues.},
+	language = {en},
+	number = {3},
+	urldate = {2020-12-04},
+	journal = {Bayesian Analysis},
+	author = {Gelman, Andrew},
+	month = sep,
+	year = {2008},
+	pages = {445--449},
+	file = {Gelman - 2008 - Objections to Bayesian statistics.pdf:/home/andy-pohl/Zotero/storage/ZYXF2VI9/Gelman - 2008 - Objections to Bayesian statistics.pdf:application/pdf}
+}
+
+@article{efron_why_1986,
+	title = {Why {Isn}'t {Everyone} a {Bayesian}?},
+	volume = {40},
+	language = {en},
+	number = {1},
+	journal = {The American Statistician},
+	author = {Efron, B.},
+	year = {1986},
+	pages = {1--5},
+	file = {2020 - Why Isn't Everyone a Bayesian.pdf:/home/andy-pohl/Zotero/storage/JZRLDRHE/2020 - Why Isn't Everyone a Bayesian.pdf:application/pdf}
+}
+
+@book{gelman_bayesian_2014,
+	address = {Boca Raton, FL},
+	edition = {3rd},
+	title = {Bayesian {Data} {Analysis}},
+	language = {en},
+	publisher = {Chapman \& Hall/CRC texts in statistical science},
+	author = {Gelman, A and Carlin, B. and Dunson, D. B. and Vehtari, Aki and Rubin, Donald B. and Rubin, Donald B.},
+	year = {2014},
+	file = {Andrew - Bayesian Data Analysis, Third Edition.pdf:/home/andy-pohl/Zotero/storage/CBU7S5ZF/Andrew - Bayesian Data Analysis, Third Edition.pdf:application/pdf}
+}
+
+@incollection{seber_linear_2003,
+	edition = {Second},
+	title = {Linear {Regression}: {Estimation} and {Distribution} {Theory}},
+	language = {en},
+	booktitle = {Linear {Regression} {Analysis}.},
+	publisher = {John Wiley \& Sons Inc.},
+	author = {Seber, George A. F. and Lee, Allan J.},
+	year = {2003},
+	pages = {61},
+	file = {Linear Regression Estimation and Distribution The.pdf:/home/andy-pohl/Zotero/storage/PHNSRKXU/Linear Regression Estimation and Distribution The.pdf:application/pdf}
+}
+
+@article{berger_integrated_1999,
+	title = {Integrated {Likelihood} {Methods} for {Eliminating} {Nuisance} {Parameters}},
+	volume = {14},
+	abstract = {Elimination of nuisance parameters is a central problem in statistical inference and has been formally studied in virtually all approaches to inference. Perhaps the least studied approach is elimination of nuisance parameters through integration, in the sense that this is viewed as an almost incidental byproduct of Bayesian analysis and is hence not something which is deemed to require separate study. There is, however, considerable value in considering integrated likelihood on its own, especially versions arising from default or noninformative priors. In this paper, we review such common integrated likelihoods and discuss their strengths and weaknesses relative to other methods.},
+	language = {en},
+	number = {1},
+	journal = {Statistical Science},
+	author = {Berger, James O and Liseo, Brunero and Wolpert, Robert L},
+	year = {1999},
+	pages = {1--28},
+	file = {Berger et al. - Integrated Likelihood Methods for Eliminating Nuis.pdf:/home/andy-pohl/Zotero/storage/VTEJWKI4/Berger et al. - Integrated Likelihood Methods for Eliminating Nuis.pdf:application/pdf}
+}
+
+@article{leardini_human_2005,
+	title = {Human movement analysis using stereophotogrammetry part 3: {Soft} tissue artifact assessment and compensation},
+	volume = {21},
+	issn = {09666362},
+	url = {https://linkinghub.elsevier.com/retrieve/pii/S0966636204000773},
+	doi = {10.1016/j.gaitpost.2004.05.002},
+	abstract = {When using optoelectronic stereophotogrammetry, skin deformation and displacement causes marker movement with respect to the underlying bone. This movement represents an artifact, which affects the estimation of the skeletal system kinematics, and is regarded as the most critical source of error in human movement analysis. A comprehensive review of the state-of-the-art for assessment, minimization and compensation of the soft tissue artifact (STA) is provided. It has been shown that STA is greater than the instrumental error associated with stereophotogrammetry, has a frequency content similar to the actual bone movement, is task dependent and not reproducible among subjects and, of lower limb segments, is greatest at the thigh. It has been shown that in in vivo experiments only motion about the ﬂexion/extension axis of the hip, knees and ankles can be determined reliably. Motion about other axes at those joints should be regarded with much more caution as this artifact produces spurious effects with magnitudes comparable to the amount of motion actually occurring in those joints. Techniques designed to minimize the contribution of and compensate for the effects of this artifact can be divided up into those which model the skin surface and those which include joint motion constraints. Despite the numerous solutions proposed, the objective of reliable estimation of 3D skeletal system kinematics using skin markers has not yet been satisfactorily achieved and greatly limits the contribution of human movement analysis to clinical practice and biomechanical research. For STA to be compensated for effectively, it is here suggested that either its subject-speciﬁc pattern is assessed by ad hoc exercises or it is characterized from a large series of measurements on different subject populations. Alternatively, inclusion of joint constraints into a more general STA minimization approach may provide an acceptable solution. © 2004 Elsevier B.V. All rights reserved.},
+	language = {en},
+	number = {2},
+	urldate = {2019-06-14},
+	journal = {Gait \& Posture},
+	author = {Leardini, Alberto and Chiari, Lorenzo and Croce, Ugo Della and Cappozzo, Aurelio},
+	month = feb,
+	year = {2005},
+	pages = {212--225},
+	file = {Leardini et al. - 2005 - Human movement analysis using stereophotogrammetry.pdf:/home/andy-pohl/Zotero/storage/X279HIWK/Leardini et al. - 2005 - Human movement analysis using stereophotogrammetry.pdf:application/pdf;Leardini et al. - 2005 - Human movement analysis using stereophotogrammetry.pdf:/home/andy-pohl/Zotero/storage/M6HBXN7D/Leardini et al. - 2005 - Human movement analysis using stereophotogrammetry.pdf:application/pdf}
+}
+
+@article{mcginley_reliability_2009,
+	title = {The reliability of three-dimensional kinematic gait measurements: {A} systematic review},
+	volume = {29},
+	issn = {09666362},
+	shorttitle = {The reliability of three-dimensional kinematic gait measurements},
+	url = {https://linkinghub.elsevier.com/retrieve/pii/S0966636208002646},
+	doi = {10.1016/j.gaitpost.2008.09.003},
+	abstract = {Background/Aim: Three-dimensional kinematic measures of gait are routinely used in clinical gait analysis and provide a key outcome measure for gait research and clinical practice. This systematic review identiﬁes and evaluates current evidence for the inter-session and inter-assessor reliability of threedimensional kinematic gait analysis (3DGA) data.
+	Method: A targeted search strategy identiﬁed reports that fulﬁlled the search criteria. The quality of fulltext reports were tabulated and evaluated for quality using a customised critical appraisal tool.
+	Results: Fifteen full manuscripts and eight abstracts were included. Studies addressed both withinassessor and between-assessor reliability, with most examining healthy adults. Four full-text reports evaluated reliability in people with gait pathologies. The highest reliability indices occurred in the hip and knee in the sagittal plane, with lowest errors in pelvic rotation and obliquity and hip abduction. Lowest reliability and highest error frequently occurred in the hip and knee transverse plane. Methodological quality varied, with key limitations in sample descriptions and strategies for statistical analysis. Reported reliability indices and error magnitudes varied across gait variables and studies. Most studies providing estimates of data error reported values (S.D. or S.E.) of less than 58, with the exception of hip and knee rotation.
+	Conclusion: This review provides evidence that clinically acceptable errors are possible in gait analysis. Variability between studies, however, suggests that they are not always achieved. ß 2008 Elsevier B.V. All rights reserved.},
+	language = {en},
+	number = {3},
+	urldate = {2020-12-18},
+	journal = {Gait \& Posture},
+	author = {McGinley, Jennifer L. and Baker, Richard and Wolfe, Rory and Morris, Meg E.},
+	month = apr,
+	year = {2009},
+	pages = {360--369},
+	file = {McGinley et al. - 2009 - The reliability of three-dimensional kinematic gai.pdf:/home/andy-pohl/Zotero/storage/3CYQUT6Q/McGinley et al. - 2009 - The reliability of three-dimensional kinematic gai.pdf:application/pdf}
+}
+
+@article{osis_novel_2015,
+	title = {A novel method to evaluate error in anatomical marker placement using a modified generalized {Procrustes} analysis},
+	volume = {18},
+	issn = {1025-5842, 1476-8259},
+	url = {http://www.tandfonline.com/doi/abs/10.1080/10255842.2013.873034},
+	doi = {10.1080/10255842.2013.873034},
+	language = {en},
+	number = {10},
+	urldate = {2020-12-18},
+	journal = {Computer Methods in Biomechanics and Biomedical Engineering},
+	author = {Osis, Sean T. and Hettinga, Blayne A. and Macdonald, Shari L. and Ferber, Reed},
+	month = jul,
+	year = {2015},
+	pages = {1108--1116},
+	file = {Osis et al. - 2015 - A novel method to evaluate error in anatomical mar.pdf:/home/andy-pohl/Zotero/storage/8RYR436B/Osis et al. - 2015 - A novel method to evaluate error in anatomical mar.pdf:application/pdf}
+}
+
+@book{winter_biomechanics_2005,
+	address = {Hoboken, N.J.},
+	title = {Biomechanics and motor control of human movement},
+	publisher = {Hoboken, N.J. : Wiley},
+	author = {Winter, David A.},
+	year = {2005},
+	keywords = {Human mechanics, Kinesiology, Motor ability}
+}
+
+@book{gelman_data_2007,
+	address = {New York, NY},
+	title = {Data {Analysis} {Using} {Regression} and {Multilevel}/{Hierarchical} {Models}},
+	language = {en},
+	publisher = {Cambridge University Press},
+	author = {Gelman, Andrew and Hill, Jennifer},
+	year = {2007}
+}
+
+@article{bertsimas_simulated_1993,
+	title = {Simulated {Annealing}},
+	volume = {8},
+	number = {1},
+	journal = {Statistical Science},
+	author = {Bertsimas, Dimitris and Tsitsiklis, John},
+	year = {1993},
+	pages = {10--15},
+	file = {euclid.ss.1177011077.pdf:/home/andy-pohl/Zotero/storage/5ZJ6TVIM/euclid.ss.1177011077.pdf:application/pdf}
+}
+
+@book{gilks_markov_1996,
+	edition = {1},
+	title = {Markov {Chain} {Monte} {Carlo} in practice},
+	language = {en},
+	publisher = {Springer Science + Business Media},
+	author = {Gilks, W. R. and Richardson, S. and Spiegelhalter, David J.},
+	year = {1996},
+	file = {2000 - 10.1007978-1-4899-4485-6.pdf:/home/andy-pohl/Zotero/storage/K6GUJGS4/2000 - 10.1007978-1-4899-4485-6.pdf:application/pdf}
+}
+
+@article{marinari_simulated_1992,
+	title = {Simulated {Tempering}: {A} {New} {Monte} {Carlo} {Scheme}},
+	volume = {19},
+	issn = {0295-5075, 1286-4854},
+	shorttitle = {Simulated {Tempering}},
+	url = {https://iopscience.iop.org/article/10.1209/0295-5075/19/6/002},
+	doi = {10.1209/0295-5075/19/6/002},
+	abstract = {We propose a new global optimization method (Simulated Tempering) for simulating effectively a system with a rough free-energy landscape (i.e., many coexisting states) at finite nonzero temperature. This method is related to simulated annealing, but here the temperature becomes a dynamic variable, and the system is always kept at equilibrium. We analyse the method on the Random Field Ising Model, and we find a dramatic improvement over conventional Metropolis and cluster methods. We analyse and discuss the conditions under which the method has optimal performances.},
+	language = {en},
+	number = {6},
+	urldate = {2020-12-14},
+	journal = {Europhysics Letters (EPL)},
+	author = {Marinari, E and Parisi, G},
+	month = jul,
+	year = {1992},
+	pages = {451--458},
+	file = {Marinari and Parisi - 1992 - Simulated Tempering A New Monte Carlo Scheme.pdf:/home/andy-pohl/Zotero/storage/349USDPA/Marinari and Parisi - 1992 - Simulated Tempering A New Monte Carlo Scheme.pdf:application/pdf}
+}
+
+@article{osis_predicting_2014,
+	title = {Predicting timing of foot strike during running, independent of striking technique, using principal component analysis of joint angles},
+	volume = {47},
+	issn = {00219290},
+	url = {https://linkinghub.elsevier.com/retrieve/pii/S0021929014003480},
+	doi = {10.1016/j.jbiomech.2014.06.009},
+	abstract = {As 3-dimensional (3D) motion-capture for clinical gait analysis continues to evolve, new methods must be developed to improve the detection of gait cycle events based on kinematic data. Recently, the application of principal component analysis (PCA) to gait data has shown promise in detecting important biomechanical features. Therefore, the purpose of this study was to deﬁne a new foot strike detection method for a continuum of striking techniques, by applying PCA to joint angle waveforms. In accordance with Newtonian mechanics, it was hypothesized that transient features in the sagittal-plane accelerations of the lower extremity would be linked with the impulsive application of force to the foot at foot strike. Kinematic and kinetic data from treadmill running were selected for 154 subjects, from a database of gait biomechanics. Ankle, knee and hip sagittal plane angular acceleration kinematic curves were chained together to form a row input to a PCA matrix. A linear polynomial was calculated based on PCA scores, and a 10-fold cross-validation was performed to evaluate prediction accuracy against goldstandard foot strike as determined by a 10 N rise in the vertical ground reaction force. Results show 89–94\% of all predicted foot strikes were within 4 frames (20 ms) of the gold standard with the largest error being 28 ms. It is concluded that this new foot strike detection is an improvement on existing methods and can be applied regardless of whether the runner exhibits a rearfoot, midfoot, or forefoot strike pattern.},
+	language = {en},
+	number = {11},
+	urldate = {2019-06-14},
+	journal = {Journal of Biomechanics},
+	author = {Osis, Sean T. and Hettinga, Blayne A. and Leitch, Jessica and Ferber, Reed},
+	month = aug,
+	year = {2014},
+	pages = {2786--2789},
+	file = {Osis et al. - 2014 - Predicting timing of foot strike during running, i.pdf:/home/andy-pohl/Zotero/storage/SDRUBCUW/Osis et al. - 2014 - Predicting timing of foot strike during running, i.pdf:application/pdf}
+}
+
+@article{osis_predicting_2016,
+	title = {Predicting ground contact events for a continuum of gait types: {An} application of targeted machine learning using principal component analysis},
+	volume = {46},
+	issn = {09666362},
+	shorttitle = {Predicting ground contact events for a continuum of gait types},
+	url = {https://linkinghub.elsevier.com/retrieve/pii/S096663621600062X},
+	doi = {10.1016/j.gaitpost.2016.02.021},
+	abstract = {An ongoing challenge in the application of gait analysis to clinical settings is the standardized detection of temporal events, with unobtrusive and cost-effective equipment, for a wide range of gait types. The purpose of the current study was to investigate a targeted machine learning approach for the prediction of timing for foot strike (or initial contact) and toe-off, using only kinematics for walking, forefoot running, and heel-toe running. Data were categorized by gait type and split into a training set (\$30\%) and a validation set (\$70\%). A principal component analysis was performed, and separate linear models were trained and validated for foot strike and toe-off, using ground reaction force data as a gold-standard for event timing. Results indicate the model predicted both foot strike and toe-off timing to within 20 ms of the gold-standard for more than 95\% of cases in walking and running gaits. The machine learning approach continues to provide robust timing predictions for clinical use, and may offer a ﬂexible methodology to handle new events and gait types.},
+	language = {en},
+	urldate = {2019-06-14},
+	journal = {Gait \& Posture},
+	author = {Osis, Sean T. and Hettinga, Blayne A. and Ferber, Reed},
+	month = may,
+	year = {2016},
+	pages = {86--90},
+	file = {Osis et al. - 2016 - Predicting ground contact events for a continuum o.pdf:/home/andy-pohl/Zotero/storage/H6UQJJWZ/Osis et al. - 2016 - Predicting ground contact events for a continuum o.pdf:application/pdf}
+}
+
+@book{allard_three-dimensional_1997,
+	title = {Three-dimensional {Analysis} of {Human} {Locomotion}.},
+	publisher = {John Wiley \& Sons Ltd.},
+	author = {Allard, Paul and Cappozzo, Aurelio and Lundberg, Arne and Vaughan, Christopher L.},
+	year = {1997}
+}
+
+@article{rue_bayesian_2017,
+	title = {Bayesian {Computing} with {INLA}: {A} {Review}},
+	volume = {4},
+	issn = {2326-8298, 2326-831X},
+	shorttitle = {Bayesian {Computing} with {INLA}},
+	url = {http://www.annualreviews.org/doi/10.1146/annurev-statistics-060116-054045},
+	doi = {10.1146/annurev-statistics-060116-054045},
+	abstract = {The key operation in Bayesian inference is to compute high-dimensional integrals. An old approximate technique is the Laplace method or approximation, which dates back to Pierre-Simon Laplace (1774). This simple idea approximates the integrand with a second-order Taylor expansion around the mode and computes the integral analytically. By developing a nested version of this classical idea, combined with modern numerical techniques for sparse matrices, we obtain the approach of integrated nested Laplace approximations (INLA) to do approximate Bayesian inference for latent Gaussian models (LGMs). LGMs represent an important model abstraction for Bayesian inference and include a large proportion of the statistical models used today. In this review, we discuss the reasons for the success of the INLA approach, the R-INLA package, why it is so accurate, why the approximations are very quick to compute, and why LGMs make such a useful concept for Bayesian computing.},
+	language = {en},
+	number = {1},
+	urldate = {2020-12-16},
+	journal = {Annual Review of Statistics and Its Application},
+	author = {Rue, Håvard and Riebler, Andrea and Sørbye, Sigrunn H. and Illian, Janine B. and Simpson, Daniel P. and Lindgren, Finn K.},
+	month = mar,
+	year = {2017},
+	pages = {395--421},
+	file = {Rue et al. - 2017 - Bayesian Computing with INLA A Review.pdf:/home/andy-pohl/Zotero/storage/3LY9VXTU/Rue et al. - 2017 - Bayesian Computing with INLA A Review.pdf:application/pdf}
+}
+
+@book{mardia_directional_2000,
+	address = {Chichester ; New York},
+	series = {Wiley series in probability and statistics},
+	title = {Directional statistics},
+	isbn = {978-0-471-95333-3},
+	language = {en},
+	publisher = {J. Wiley},
+	author = {Mardia, K. V. and Jupp, Peter E.},
+	year = {2000},
+	keywords = {Mathematical statistics, Distribution (Probability theory), Sampling (Statistics)},
+	file = {Mardia and Jupp - 2000 - Directional statistics.pdf:/home/andy-pohl/Zotero/storage/Q5APTW5J/Mardia and Jupp - 2000 - Directional statistics.pdf:application/pdf}
+}
