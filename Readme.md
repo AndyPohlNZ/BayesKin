@@ -1,11 +1,5 @@
 # Bayesian Kinematics
 
-<<<<<<< HEAD
-This repository contains code and data to replicate analyses outlined in Pohl, Schofield and Ferber. (2019). Compoaring the performance of Bayesian and least-squares approaches to inverse kinematics.
-=======
-This repository contains code and data to replicate analyses outlined in Pohl, Schofield and Ferber. (2021). Examination of a Bayesian approach to inverse Kinematics.
->>>>>>> master
-
 If you have any queries please contact the author at andrew.pohl@ucalgary.ca
 
 ## Requirements
