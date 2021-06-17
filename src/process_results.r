@@ -6,7 +6,7 @@
 ## Written by: Andy Pohl
 ## UofC - Faculty of Kinesiology
 ## June-Dec 2020
-## Revision 1: April 2020
+## Revision 1: April 2021
 ################################################################
 
 ##################### process_results.r  ###################
@@ -18,8 +18,9 @@ rm(list = ls()) # clear workspace
 
 library('rjags') # load rstan package to analyze rstan objects
 library('coda') # load coda package for mcmc analysis
-
-RESULTS_DIR = "" # location of results directory
+WORKING_DIR = "" # Replace with the location of the BayesKin/src directory on the local PC.
+setwd(WORKING_DIR)
+RESULTS_DIR = paste0(WORKING_DIR, "/src/") # location of results directory
 POSE_DIRS = c("SingleLink_Mdl", "DoubleLink_Mdl", "TripleLink_Mdl")  # Folder names for the various model configurations
 MODELS = c("LS", "Bayes_p1", "Bayes_p2", "Bayes_p3", "Bayes_p4", "Bayes_p5") # Names of Models used
 file_ends = c('LSModel.rda', 'BayesModel_p1.rda', 'BayesModel_p2.rda', 'BayesModel_p3.rda', 'BayesModel_p4.rda', 'BayesModel_p5.rda')

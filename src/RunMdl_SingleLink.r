@@ -6,7 +6,7 @@
 ## Written by: Andy Pohl
 ## UofC - Faculty of Kinesiology
 ## June-Dec 2020
-## Revision 1: April 2020
+## Revision 1: April 2021
 
 ################################################################
 
@@ -18,7 +18,7 @@
 ## 0) Prelimaries
 rm(list = ls())
 
-WORKING_DIR = "" # Replace with appropriate location of working directory on local PC
+WORKING_DIR = "" # Replace with the location of the BayesKin/src directory on the local PC.
 SAVE_MDL = TRUE # assume save
 
 INIT_TYPE = 'ls_est' # either 'true_vals', 'ls_est', 'random' 

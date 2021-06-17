@@ -6,7 +6,7 @@
 ## Written by: Andy Pohl
 ## UofC - Faculty of Kinesiology
 ## June-Dec 2020
-## Revision 1: April 2020
+## Revision 1: April 2021
 ################################################################
 
 ##################### generate_results.r  ###################
@@ -18,12 +18,12 @@
 rm(list = ls()) # clear workspace
 
 library('dplyr')
-library('tidyr')
 library('latex2exp')
 library('xtable')
-library('ggplot2')
 library('coda')
-RESULTS_DIR = "" # location of results directory
+WORKING_DIR = "" # Replace with the location of the BayesKin/src directory on the local PC.
+setwd(WORKING_DIR)
+RESULTS_DIR = paste0(WORKING_DIR, "/src/") # location of results directory
 
 setwd(RESULTS_DIR)
 # Load results file
@@ -536,8 +536,8 @@ filled.contour(x=thetas, y = thetas, z=costs,
 
 
 # lik for theta 2 vs 3
-thetasi = seq(-180, -45, length.out = 1000)
-thetasj = seq(180, 270, length.out = 1000)
+thetasi = seq(-135, 135, length.out = 500)
+thetasj = seq(-45, 270, length.out = 500)
 
 costs = matrix(NA, nrow = length(thetasi), ncol = length(thetasj))
 for(i in 1:length(thetasi)){
@@ -548,12 +548,12 @@ for(i in 1:length(thetasi)){
 
 filled.contour(x=thetasi, y = thetasj, z=costs, 
                color = function(n) rev(hcl.colors(n, "Spectral")),
-               main = 'Cost for theta', xlab = 'theta2', ylab = 'theta3', nlevels = 30,
-               plot.axes={points(true_vals[4], true_vals[5], pch = 3, col = 'green')
-                   points(LS_result$theta.hat[2], LS_result$theta.hat[3], pch = 3, col = 'blue')
-                   points(inits[4], inits[5], pch = 3, col = 'black')
-                   axis(1, seq(-180, -45, by = 45))
-                   axis(2, seq(180, 270, by = 45))})
+               main = "LS Cost", xlab = TeX('$\\theta_2$'), ylab = TeX('$\\theta_3$'), nlevels = 30,
+               plot.axes={points(true_vals[4], true_vals[5], pch = 19, col = rgb(241/255, 136/255,5/255, 1))
+                   points(LS_result$theta.hat[2], LS_result$theta.hat[3], pch = 19, col = rgb(217/255, 3/255, 104/255, 1))
+                   points(inits[4], inits[5], pch = 19, col = 'black')
+                   axis(1, seq(-135, 135, by = 45))
+                   axis(2, seq(-45, 270, by = 45))})
 
 
 
